@@ -7,6 +7,8 @@ export const App: React.FC = () => {
   console.disableYellowBox = true
   return (
 
+    
+
     <ApplicationContextProviderManagement>
       <Routes />
     </ApplicationContextProviderManagement>
