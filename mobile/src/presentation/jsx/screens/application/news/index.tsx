@@ -57,7 +57,7 @@ export const ApplicationNewsScreen: React.FC = () => {
       <HeaderContainer>
       <DynamicActionsHeaderModule 
       disable
-      title="TITULO"
+      title="Teste Zero"
       size={38}
       icons={[
       ]} />
