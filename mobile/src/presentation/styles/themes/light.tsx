@@ -6,7 +6,7 @@ export default {
     primary: {
       light: '#0099A0',
       natural: '#0099A0',
-      dark: '#0099A0',
+      dark: '#006EA4',
     },
     secondary: {
       light: '#F3F3F3',
@@ -26,7 +26,9 @@ export default {
         bottom: '#006EA4'
       }
     },
-    
+    border:{
+      primary: '#CCCCCC',
+    },
     typography:{
       title: {
         natural: '#FFFFFF',

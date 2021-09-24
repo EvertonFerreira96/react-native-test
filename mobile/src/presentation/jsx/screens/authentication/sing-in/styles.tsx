@@ -23,6 +23,7 @@ export const Title = styled.Text`
 `;
 
 export const AuthenticationContainer = styled.View`
+margin: ${RFValue(32)}px 0;
 `;
 
 export const ActionsContainer = styled.View`
@@ -30,6 +31,7 @@ export const ActionsContainer = styled.View`
   align-items: center;
   justify-content: space-between;
   padding: ${ RFValue(8)}px;
+
 `;
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInputProps } from 'react-native';
+import { useTheme } from 'styled-components';
 import { TouchableIconComponent } from '../../actions/touchables/icon';
 import { Container, IconContainer, Input } from './styles';
 
@@ -23,6 +24,7 @@ interface TextInputComponenttProps
 const TextInputComponent: React.FC<TextInputComponenttProps> = (
     { icons, size, ...rest }
 ) => {
+  const theme = useTheme();
   return (<Container>
        <IconContainer>
           {icons &&
@@ -42,7 +44,7 @@ const TextInputComponent: React.FC<TextInputComponenttProps> = (
               ))
           ) }
           </IconContainer>
-    <Input {...rest} />
+    <Input placeholderTextColor={theme.colors.typography.title.natural} {...rest} />
 <IconContainer>
           {icons &&
           icons.filter(item => item.location === 'right' && !item.invisible)

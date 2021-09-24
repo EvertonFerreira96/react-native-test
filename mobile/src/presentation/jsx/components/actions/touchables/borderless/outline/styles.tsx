@@ -21,8 +21,8 @@ export const Container = styled(TouchableOpacity)<ContainerProps>`
 
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
 
-  border-color: ${({ theme }) => theme.colors.primary.dark};
-  border-width: ${RFValue(2)}px;
+  border-color: ${({ theme }) => theme.colors.background.primary};
+  border-width: ${RFValue(1)}px;
   border-radius: ${RFValue(5)}px;
 
 `;
