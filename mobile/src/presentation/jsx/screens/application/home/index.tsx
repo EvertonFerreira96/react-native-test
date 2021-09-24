@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-
 import { useTheme } from 'styled-components';
 
 
@@ -19,6 +18,8 @@ import { Container, HeaderContainer, SchoolsContainer , SearchContainer, HeaderC
 import { AxiosHttpClient } from '@/infra/http';
 import { useNavigation, useRoute } from '@react-navigation/core';
 import { TouchableListCardComponent } from '../../../components/actions/touchables/list-card';
+import { LoadingProps, SplashScreen } from '../../shared/splash-screen';
+import { HttpMethod } from '../../../../../data/protocols/http';
 
 
 interface ISchoolsCollections {
@@ -38,28 +39,53 @@ export const ApplicationHomeScreen: React.FC = () => {
   const {params} = useRoute(); 
   const [searchText, setSearchText] = useState('');
   const {schools} = params as ApplicationHomeScreenRouteParams; 
-
+  const [isLoading, setIsLoading] = useState<LoadingProps>({
+    state: false
+  }); 
 
   const collection = schools.filter(item => item.contexto.toUpperCase().includes(searchText.toUpperCase()) || item.name.toUpperCase().includes(searchText.toUpperCase()))
 
   const handleChoiseScholl = async (item: ISchoolsCollections) => {
+    setIsLoading({
+      state: true,
+      image: item.avatar
+    })
 
+ 
+    /*
+    const response = await axios.request({
+      url: 'https://testezero.tst2.escolaapp.com/api/mensagem/ultimas-noticias/v3',
+      method: HttpMethod.Post,
+      headers: { "X-Authorization": "45kcXY6IfULlpPzgf/H/8YhvuRHDizM06wZVbUjxARKnDzfe4cRHEG25vr7/4idet7f0sqjjyqkkXQUTm3H+XA==" }
+    })
+    */
 
+    
+
+    console.log(item.contexto);
+    setIsLoading({
+      state: false, 
+      image: undefined
+    })
+    
   }
 
   useEffect(() => {
     return () => { schools.splice(0, schools.length);  collection.splice(0, schools.length) } 
   })
 
-  return( 
-    <KeyboardAvoidingView
-    behavior='position'
-    keyboardVerticalOffset={-RFPercentage(60)}
-    enabled
-  >
+  
+    return( 
+    !isLoading.state ? 
+
+      <KeyboardAvoidingView
+      behavior='position'
+      keyboardVerticalOffset={-RFPercentage(60)}
+      enabled
+      >
     <TouchableWithoutFeedback
       onPress={() => Keyboard.dismiss()}
-    >
+      >
     <Container>
       <HeaderContainer>
         <HeaderContent>
@@ -88,5 +114,7 @@ export const ApplicationHomeScreen: React.FC = () => {
 
     </KeyboardAvoidingView>
 
-  );
+: <SplashScreen image={isLoading.image} />
+
+);
 }

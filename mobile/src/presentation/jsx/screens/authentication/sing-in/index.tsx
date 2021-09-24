@@ -1,5 +1,5 @@
 import { DynamicActionsHeaderModule } from '../../../modules/headers/dynamic-actions';
-import React from 'react';
+import React, {useState} from 'react';
 
 import { useTheme } from 'styled-components';
 import { TouchableFilledBorderlessComponent } from '../../../components/actions/touchables/borderless/filled';
@@ -14,6 +14,9 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import { useNavigation } from '@react-navigation/core';
 import { AxiosHttpClient } from '../../../../../infra/http';
 import { HttpMethod } from '../../../../../data/protocols/http';
+
+
+
 
 export const AuthenticationSignInScreen: React.FC = () => {
   const theme = useTheme(); 
@@ -60,7 +63,7 @@ export const AuthenticationSignInScreen: React.FC = () => {
   }
 
   return (
-
+<>
     <KeyboardAvoidingView
     testID="sign-in-screen"
     behavior='position'
@@ -121,8 +124,8 @@ export const AuthenticationSignInScreen: React.FC = () => {
       </FooterContainer>
     </Container>
     </TouchableWithoutFeedback>
-
     </KeyboardAvoidingView>
+    </>
 
   )
 }

@@ -50,7 +50,7 @@ export const Title = styled.Text<TextProps>`
   line-height: ${({ theme }) =>
        theme.typography.regular.natural.lineHeight}px;
   font-size: ${({ theme }) =>
-       theme.typography.small.natural.fontSize };
+       theme.typography.small.natural.fontSize }px;
   font-family: ${({ theme }) => theme.typography.regular.dark.fontFamily};
 `;
 
@@ -59,8 +59,8 @@ export const SubTitle = styled.Text<TextProps>`
   line-height: ${({ theme }) =>
        theme.typography.regular.natural.lineHeight}px;
   font-size: ${({ theme }) =>
-       theme.typography.small.natural.fontSize };
-  font-family: ${({ theme }) => theme.typography.regular.dark.fontFamily};
+       theme.typography.small.natural.fontSize }px  ;
+  font-family: ${({ theme }) => theme.typography.regular.dark.fontFamily}px;
 `;
 
 export const IconCardContainer = styled(View)<IconContainerProps>`
