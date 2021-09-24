@@ -17,11 +17,12 @@ interface ActionsBetweenHeaderModuleProps {
     invisible?: boolean;
   }[];
   size?: number;
-  spacing?: number;
+    disable?: boolean;
+    spacing?: number;
 }
 
 export const DynamicActionsHeaderModule: React.FC<ActionsBetweenHeaderModuleProps> =
-  ({ title, icons, size, spacing }) => {
+  ({ title, icons, size, spacing, disable = false }) => {
     return (
       <Container >
         <IconContainer>
@@ -40,7 +41,7 @@ export const DynamicActionsHeaderModule: React.FC<ActionsBetweenHeaderModuleProp
                   onPress={item.action || undefined}
                 />
               ))
-          ) : (
+          ) : !disable && (
             <TouchableGoBackComponent size={size} />
           )}
         </IconContainer>
@@ -48,7 +49,7 @@ export const DynamicActionsHeaderModule: React.FC<ActionsBetweenHeaderModuleProp
         {title && <Title>{title}</Title>}
 
         <IconContainer>
-          {icons &&
+          {icons && disable &&
             icons.filter(item => item.location === 'right' && !item.invisible)
               .length > 0 &&
             icons

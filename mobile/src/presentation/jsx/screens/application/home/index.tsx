@@ -3,23 +3,14 @@ import { useTheme } from 'styled-components';
 
 
 import { DynamicActionsHeaderModule } from '../../../modules/headers/dynamic-actions';
-import { TouchableFilledBorderlessComponent } from '../../../components/actions/touchables/borderless/filled';
-import { TouchableTranslucentComponent } from '../../../components/actions/touchables/translucent';
-import { SeparatorComponent } from '../../../components/separator';
-
-import { TouchableOutlineBorderlessComponent } from '../../../components/actions/touchables/borderless/outline';
-import TextInputComponent from '../../../components/words/text-inputs';
 import { KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { SearchTextInputComponent } from '../../../components/words/search';
-import axios from 'axios';  
 
 import { Container, HeaderContainer, SchoolsContainer , SearchContainer, HeaderContent, WrapperContainer } from './styles';
-import { AxiosHttpClient } from '@/infra/http';
 import { useNavigation, useRoute } from '@react-navigation/core';
 import { TouchableListCardComponent } from '../../../components/actions/touchables/list-card';
 import { LoadingProps, SplashScreen } from '../../shared/splash-screen';
-import { HttpMethod } from '../../../../../data/protocols/http';
 
 
 interface ISchoolsCollections {
@@ -66,7 +57,9 @@ export const ApplicationHomeScreen: React.FC = () => {
     setIsLoading({
       state: false, 
       image: undefined
-    })
+    });
+    navigate('News')
+    
     
   }
 

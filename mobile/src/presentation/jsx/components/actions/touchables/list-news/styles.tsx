@@ -23,7 +23,7 @@ export const Container = styled(TouchableOpacity).attrs({
   justify-content: space-between;
 
   padding: ${RFValue(16)}px  ${RFValue(8)}px;
-  margin: ${RFValue(4)}px 0;
+  margin: ${RFValue(4)}px ${RFValue(4)}px ;
 
   background: ${({ theme }) => theme.colors.background.primary};
 
@@ -32,19 +32,33 @@ export const Container = styled(TouchableOpacity).attrs({
 
 export const TextContainer = styled(View)`
   flex: 1;
+  flex-direction: row;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
 `;
 
 export const Wrapper = styled.View`
   border-bottom-width: 1px;
   flex: 1;
   border-color: ${({ theme }) => theme.colors.border.primary};
-  flex-direction: row;
 
-align-items: flex-start;
-justify-content: space-between;
+`;
+
+export const IconContainer = styled.View`
+  background:  ${({ theme }) => theme.colors.primary.dark};
+  border-radius: 500px;
+  padding: ${RFValue(8)}px;
+` 
+;
+export const MetaData = styled.View`
+  flex:1;
+  margin: 0 ${RFValue(8)}px;
 `;
 
 export const Title = styled.Text<TextProps>`
+flex:1;
   color: ${({ theme }) => theme.colors.typography.title.contrast};
 
   line-height: ${({ theme }) =>
@@ -54,7 +68,16 @@ export const Title = styled.Text<TextProps>`
   font-family: ${({ theme }) => theme.typography.regular.dark.fontFamily};
 `;
 
-export const SubTitle = styled.Text<TextProps>`
+export const Author = styled.Text<TextProps>`
+  color: ${({ theme }) => theme.colors.typography.subTitle.contrast};
+  line-height: ${({ theme }) =>
+       theme.typography.little.natural.lineHeight}px;
+  font-size: ${({ theme }) =>
+       theme.typography.little.natural.fontSize }px  ;
+  font-family: ${({ theme }) => theme.typography.little.dark.fontFamily};
+`;
+
+export const Description = styled.Text<TextProps>`
   color: ${({ theme }) => theme.colors.typography.subTitle.contrast};
   line-height: ${({ theme }) =>
        theme.typography.regular.natural.lineHeight}px;
@@ -62,25 +85,12 @@ export const SubTitle = styled.Text<TextProps>`
        theme.typography.small.natural.fontSize }px  ;
   font-family: ${({ theme }) => theme.typography.regular.dark.fontFamily};
 `;
-
-export const IconCardContainer = styled(View)<IconContainerProps>`
-  padding: ${RFValue(8)}px;
-  background: ${({ background, theme }) =>
-    background || theme.colors.primary.light};
-
-  border-radius: ${RFValue(4)}px;
+export const Date = styled.Text<TextProps>`
+text-align: right;
+  color: ${({ theme }) => theme.colors.typography.subTitle.contrast};
+  line-height: ${({ theme }) =>
+       theme.typography.little.natural.lineHeight}px;
+  font-size: ${({ theme }) =>
+       theme.typography.little.natural.fontSize }px  ;
+  font-family: ${({ theme }) => theme.typography.little.light.fontFamily};
 `;
-
-export const IconContainer = styled(View)`
-  justify-content: center;
-`;
-
-export const IconContent = styled(View)`
-  flex: 1;
-  justify-content: center;
-`;
-
-export const Icon = styled(Feather).attrs(({ theme }) => ({
-  size: 32,
-  color: theme.colors.typography.title.contrast,
-}))``;
